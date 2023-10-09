@@ -25,7 +25,7 @@ def my_loop():
 
   dist = distance()
 
-  println("distance : " % dist)
+  print("distance : " % dist)
   
   print("Loop after 10 second")
   time.sleep(10)
