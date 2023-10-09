@@ -8,7 +8,7 @@ import time
 # ---------------------------- :: Setup
 def my_setup():
 
-  GPIO.setmode(GPIO.BOARD)
+  GPIO.setmode(GPIO.BCM)
   GPIO.setwarnings(False)
 
   print("Welcome to set up")
