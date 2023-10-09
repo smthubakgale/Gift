@@ -11,11 +11,11 @@ def my_setup():
   GPIO.setmode(GPIO.BOARD)
   GPIO.setwarnings(False)
 
- 
+  print("Welcome to set up")
   pass
 #------------------------------:: Loop
 def my_loop():
-   
+  print("Loop after 1 second")
   time.sleep(1)
   pass
 #------------------------------:: Main 
