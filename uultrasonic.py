@@ -16,6 +16,7 @@ def my_setup():
 #------------------------------:: Loop
 def my_loop():
    
+  time.sleep(1)
   pass
 #------------------------------:: Main 
 # Main function
