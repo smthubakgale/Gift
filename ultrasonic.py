@@ -10,8 +10,11 @@ def my_setup():
 
   GPIO.setmode(GPIO.BCM)
   GPIO.setwarnings(False)
+  
+  GPIO.setup(18, GPIO.OUT)    # Ultrasound trigger
+  GPIO.setup(24, GPIO.IN)     # Ultrasound Echo 
 
-  print("Welcome to set up")
+  print("Set Up")
   pass
 #------------------------------:: Loop
 def my_loop():
