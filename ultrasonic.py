@@ -5,6 +5,10 @@
 import RPi .GPIO as GPIO 
 import time 
 
+#----------------------------- :: Methods 
+def distance():
+  return 5
+  pass
 # ---------------------------- :: Setup
 def my_setup():
 
@@ -18,8 +22,12 @@ def my_setup():
   pass
 #------------------------------:: Loop
 def my_loop():
-  print("Loop after 1 second")
-  time.sleep(1)
+
+  dist = distance()
+
+  println("distance : " % dist)
+  print("Loop after 10 second")
+  time.sleep(10)
   pass
 #------------------------------:: Main 
 # Main function
