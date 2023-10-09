@@ -3,6 +3,7 @@
 #::: Ultrasonic Example 
 #----------------------------- :: Modules
 import RPi .GPIO as GPIO 
+import time 
 
 # ---------------------------- :: Setup
 def my_setup():
