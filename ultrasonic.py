@@ -5,8 +5,35 @@
 import RPi .GPIO as GPIO 
 import time 
 
+#----------------------------- :: PINS
+#:": Ultrasonic 
+GPIO_TRIGGER = 18              # trigger
+GPIO_ECHO = 24                 # Echo 
+
 #----------------------------- :: Methods 
 def distance():
+  
+  #--- send trigger for 0.01 ms
+  GPIO.output(GPIO_TRIGGER, True) 
+  time.sleep(0.00001)
+  GPIO.output(GPIO_TRIGGER, False)
+ 
+  StartTime = time.time()
+  StopTime = time.time()
+ 
+  # save StartTime
+    while GPIO.input(24) == 0:
+        StartTime = time.time()
+ 
+    # save time of arrival
+    while GPIO.input(GPIO_ECHO) == 1:
+        StopTime = time.time()
+ 
+    # time difference between start and arrival
+    TimeElapsed = StopTime - StartTime
+    # multiply with the sonic speed (34300 cm/s)
+    # and divide by 2, because there and back
+    distance = (TimeElapsed * 34300) / 2
   return 5
   pass
 # ---------------------------- :: Setup
@@ -15,8 +42,8 @@ def my_setup():
   GPIO.setmode(GPIO.BCM)
   GPIO.setwarnings(False)
   
-  GPIO.setup(18, GPIO.OUT)    # Ultrasound trigger
-  GPIO.setup(24, GPIO.IN)     # Ultrasound Echo 
+  GPIO.setup(GPIO_TRIGGER, GPIO.OUT)   
+  GPIO.setup(GPIO_ECHO , GPIO.IN)     
 
   print("Set Up")
   pass
