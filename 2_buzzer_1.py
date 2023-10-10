@@ -169,10 +169,10 @@ def my_setup():
   GPIO.setmode(GPIO.BCM)
   GPIO.setwarnings(False)
   
-  GPIO.setup(BuzzerPin, GPIO.OUT) 
   GPIO.setup(GPIO_TRIGGER, GPIO.OUT)   
   GPIO.setup(GPIO_ECHO , GPIO.IN)   
   
+  GPIO.setup(BuzzerPin, GPIO.OUT) 
   Buzz = GPIO.PWM(BuzzerPin, 440) 
   Buzz.start(50) 
 
