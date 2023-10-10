@@ -73,7 +73,7 @@ def my_setup():
 def my_loop():
 
   b1 = [15 , 8    , 4   , 8    , 4   , 15 ] # time
-  f1 = [0  , 2600 , 0   , 2600 , 0   , 0  ] # frequency 
+  f1 = [1  , 2600 , 1   , 2600 , 1   , 1  ] # frequency 
   
   buzz_sound(f1 , b1);
   
