@@ -24,7 +24,7 @@ def buzz_sound(song , beat):
    
   for i in range(1, len(song)):
      if song[i] != 0 :
-        Buzz.ChangeFrequency(song[i])
+        Buzz.Start(song[i])
      time.sleep(beat[i]*0.13) 
      Buzz.stop()
 
