@@ -20,7 +20,7 @@ pass
 
 #----------------------------- :: Methods 
 def buzz_sound(song , beat):
-  if first:
+  if first == True:
      first = False
      Buzz = GPIO.PWM(BuzzerPin, 440)
      Buzz.start(60) 
