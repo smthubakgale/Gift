@@ -11,7 +11,7 @@ GPIO_TRIGGER = 18              # trigger
 GPIO_ECHO = 24                 # Echo 
 
 #::: Buzzer
-Buzz = 0
+Buzz = null
 BuzzerPin = 4
 
 #----------------------------- :: Variables
