@@ -33,7 +33,7 @@ def buzz_sound(song , beat):
      time.sleep(beat[i]*0.13) 
 
   Buzz.stop()
-  
+  pass
 def distance():
   
   #--- send trigger for 0.01 ms
@@ -61,6 +61,7 @@ def distance():
   #---
   
   return distance 
+  pass
 # ---------------------------- :: Setup
 def my_setup():
 
@@ -73,6 +74,7 @@ def my_setup():
   GPIO.setup(BuzzerPin, GPIO.OUT) 
    
   print("Set Up")
+  pass
 #------------------------------:: Loop
 def my_loop():
 
@@ -87,6 +89,7 @@ def my_loop():
   
   print("Loop after 10 second")
   time.sleep(10)
+  pass 
 #------------------------------:: Main 
 # Main function
 def main () :
