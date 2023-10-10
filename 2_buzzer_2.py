@@ -24,7 +24,8 @@ def buzz_sound(song , beat):
   Buzz.start(50) 
    
   for i in range(1, len(song)):
-     Buzz.ChangeFrequency(song[i])
+     if sing[i] != 0 :
+        Buzz.ChangeFrequency(song[i])
      time.sleep(beat[i]*0.13) 
   pass
   
@@ -72,8 +73,8 @@ def my_setup():
 #------------------------------:: Loop
 def my_loop():
 
-  b1 = [4 , 4    , 8   , 4    , 8   , 4    , 4 ] # time
-  f1 = [1 , 2600 , 1   , 2600 , 1   , 2600 , 1 ] # frequency 
+  b1 = [8 , 8    , 8   , 8    , 8   , 8    , 8 ] # time
+  f1 = [0 , 2600 , 0   , 2600 , 0   , 2600 , 0 ] # frequency 
   
   buzz_sound(f1 , b1);
   
