@@ -11,6 +11,7 @@ GPIO_TRIGGER = 18              # trigger
 GPIO_ECHO = 24                 # Echo 
 
 #::: Buzzer
+global Buzz 
 BuzzerPin = 4
 
 #----------------------------- :: Variables
@@ -128,10 +129,7 @@ beat_1 = [
 
 #----------------------------- :: Methods 
 def buzz_sound(song , beat):
-  
-  Buzz = GPIO.PWM(BuzzerPin, 440) 
-  Buzz.start(50) 
-  
+   
   while True:
      for i in range(1, len(song)):
         Buzz.ChangeFrequency(song[i])
@@ -176,6 +174,9 @@ def my_setup():
   GPIO.setup(GPIO_ECHO , GPIO.IN)   
   
   GPIO.setup(BuzzerPin, GPIO.OUT) 
+  
+  Buzz = GPIO.PWM(BuzzerPin, 440) 
+  Buzz.start(50) 
 
   print("Set Up")
   pass
