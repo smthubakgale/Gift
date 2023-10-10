@@ -1,6 +1,6 @@
 # Author : Thubakgale Mabalane 
-# Date : 09/10/2023
-#::: Ultrasonic Example 
+# Date : 10/10/2023
+#::: Ultrasonic + Buzzer Example 
 #----------------------------- :: Modules
 import RPi .GPIO as GPIO 
 import time 
