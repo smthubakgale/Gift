@@ -131,8 +131,8 @@ beat_1 = [
 def buzz_sound(song , be1t):
   while True:
      for i in range(1, len(song)):
-	     Buzz.ChangeFrequency(song[i])
-	     time.sleep(beat[i]*0.13) 
+        Buzz.ChangeFrequency(song[i])
+        time.sleep(beat[i]*0.13) 
   pass
   
 def distance():
