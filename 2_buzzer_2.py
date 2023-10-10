@@ -12,15 +12,17 @@ GPIO_ECHO = 24                 # Echo
 
 #::: Buzzer
 BuzzerPin = 4
+first = True
 
 #----------------------------- :: Variables
 
 
 #----------------------------- :: Methods 
 def buzz_sound(song , beat):
-     
-  Buzz = GPIO.PWM(BuzzerPin, 440)
-  Buzz.start(60) 
+  if first:
+     first = False
+     Buzz = GPIO.PWM(BuzzerPin, 440)
+     Buzz.start(60) 
    
   for i in range(1, len(song)):
      if song[i] != 0 :
