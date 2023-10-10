@@ -20,11 +20,11 @@ BuzzerPin = 4
 def buzz_sound(song , beat):
      
   Buzz = GPIO.PWM(BuzzerPin, 440)
-  Buzz.start(0) 
+  Buzz.start(60) 
    
   for i in range(1, len(song)):
      if song[i] != 0 :
-        Buzz.start(0) 
+        Buzz.start(60) 
         Buzz.ChangeFrequency(song[i])
      else:
           Buzz.stop()
