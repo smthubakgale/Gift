@@ -128,7 +128,7 @@ beat_1 = [
 ]
 
 #----------------------------- :: Methods 
-def buzz_sound(song , be1t):
+def buzz_sound(song , beat):
   while True:
      for i in range(1, len(song)):
         Buzz.ChangeFrequency(song[i])
@@ -181,9 +181,9 @@ def my_setup():
 #------------------------------:: Loop
 def my_loop():
 
-  buzz_sound(song_1 , be1t_1);
-  buzz_sound(song_1 , be1t_1);
-  buzz_sound(song_1 , be1t_1);
+  buzz_sound(song_1 , beat_1);
+  buzz_sound(song_1 , beat_1);
+  buzz_sound(song_1 , beat_1);
   
   dist = distance()
 
