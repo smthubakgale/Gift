@@ -11,6 +11,7 @@ GPIO_TRIGGER = 18              # trigger
 GPIO_ECHO = 24                 # Echo 
 
 #::: Buzzer
+global Buzz 
 BuzzerPin = 4
 
 #----------------------------- :: Variables
@@ -171,7 +172,8 @@ def my_setup():
   GPIO.setup(GPIO_TRIGGER, GPIO.OUT)   
   GPIO.setup(GPIO_ECHO , GPIO.IN)   
   
-  GPIO.setup(BuzzerPin, GPIO.OUT) 
+  Buzz = GPIO.PWM(BuzzerPin, 440) 
+  Buzz.start(50) 
 
   print("Set Up")
   pass
