@@ -78,8 +78,8 @@ def my_setup():
 #------------------------------:: Loop
 def my_loop():
 
-  b1 = [ 8 , 8    , 8   , 8    , 8   , 8     ] # time
-  f1 = [ 0 , 2600 , 0   , 2600 , 0   , 2600  ] # frequency 
+  b1 = [ 6 , 6 , 6 , 6 , 6 , 6 ] # time
+  f1 = [ 0 , 1 , 0 , 1 , 0 , 1 ] # frequency 
   
   buzz_sound(f1 , b1);
   
