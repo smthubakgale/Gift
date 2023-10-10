@@ -20,13 +20,15 @@ BuzzerPin = 4
 #----------------------------- :: Methods 
 def buzz_sound(song , beat):
    
-  Buzz = GPIO.PWM(BuzzerPin, 440) 
-  Buzz.start(50) 
+  Buzz = GPIO.PWM(BuzzerPin, 440)  
    
   for i in range(1, len(song)):
      if song[i] != 0 :
         Buzz.ChangeFrequency(song[i])
      time.sleep(beat[i]*0.13) 
+     Buzz.stop()
+
+  Buzz.stop()
   pass
   
 def distance():
@@ -73,7 +75,7 @@ def my_setup():
 #------------------------------:: Loop
 def my_loop():
 
-  b1 = [ 8    , 4   , 8    , 4   , 8    ] # time
+  b1 = [ 0    , 4   , 0    , 4   , 0    ] # time
   f1 = [ 2600 , 1   , 2600 , 1   , 2600 ] # frequency 
   
   buzz_sound(f1 , b1);
