@@ -228,12 +228,6 @@ def my_loop():
   text = "Hello World";
   call([cmd_beg+cmd_out+text+cmd_end], shell=True)
 
-  # Camera 
-  camera.start_preview()
-  time.sleep(1)
-  camera.capture('/home/pi/Documents/capture/capture.jpg')
-  camera.stop_preview()
-
   # Facial Recognition
   face_embeddings()
   face_recognize()
