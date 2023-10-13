@@ -108,6 +108,7 @@ def face_recognize():
   		
   		# update the list of names
   		names.append(name)
+      print(name)
   
   pass
 def face_embeddings(): 
@@ -236,6 +237,9 @@ def my_loop():
   camera.capture('/home/pi/Documents/capture/capture.jpg')
   camera.stop_preview()
 
+  # Facial Recognition
+  face_embeddings()
+  face_recognize()
   #
   print("Loop after 10 second")
   time.sleep(10)
