@@ -9,8 +9,7 @@ import time
 from num2words import num2words
 from subprocess import call
 #:: Camera 
-from picamera import PiCamera
-#::  Facial Recognition
+from picamera import PiCamera 
 
 #----------------------------- :: PINS
 #:": Ultrasonic 
