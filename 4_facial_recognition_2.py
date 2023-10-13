@@ -125,6 +125,7 @@ def face_embeddings():
   	# extract the person name from the image path
   	print("[INFO] processing image {}/{}".format(i + 1,
   		len(imagePaths)))
+    
     dx = imagePath.rfind('\')
   	name = (dx == -1) ? imagePath[:-4] : imagePath[:dx][:-4];
   
