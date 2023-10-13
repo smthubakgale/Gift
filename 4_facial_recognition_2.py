@@ -16,7 +16,6 @@ import face_recognition
 import argparse
 import pickle
 import cv2
-import os
 
 #----------------------------- :: PINS
 #:": Ultrasonic 
@@ -126,7 +125,8 @@ def face_embeddings():
   	# extract the person name from the image path
   	print("[INFO] processing image {}/{}".format(i + 1,
   		len(imagePaths)))
-  	name = imagePath.split(os.path.sep)[-2]
+    dx = imagePath.rfind('\')
+  	name = (dx == -1) ? imagePath[:-4] : imagePath[:dx][:-4];
   
   	# load the input image and convert it from BGR (OpenCV ordering)
   	# to dlib ordering (RGB)
