@@ -29,8 +29,8 @@ BuzzerPin = 4
 #----------------------------- :: Variables
 #::: Text-To-Speech
 cmd_beg= 'espeak '
-cmd_end= ' | aplay /home/pi/Documents/Text.wav  2>/dev/null' 
-cmd_out= '--stdout > /home/pi/Documents/Text.wav ' 
+cmd_end= ' | aplay Text.wav  2>/dev/null' 
+cmd_out= '--stdout > Text.wav ' 
 
 #::: Camera 
 camera = PiCamera()
