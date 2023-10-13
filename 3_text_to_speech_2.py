@@ -92,8 +92,12 @@ def my_loop():
 
   print(str(dist))
   # Text to Speech
-  text = "Hello World";
+  text = "Hello";
   call([cmd_beg+cmd_out+text+cmd_end], shell=True)
+  
+  text = "World";
+  call([cmd_beg+cmd_out+text+cmd_end], shell=True)
+  
   #
   print("Loop after 10 second")
   time.sleep(10)
