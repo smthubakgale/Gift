@@ -8,8 +8,6 @@ import time
 #:: Text-to-Speech
 from num2words import num2words
 from subprocess import call
-#:: Camera 
-from picamera import PiCamera
 #::  Facial Recognition
 from imutils import paths
 import face_recognition
