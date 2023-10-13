@@ -105,7 +105,7 @@ def my_loop():
   # Camera 
   camera.start_preview()
   time.sleep(1)
-  camera.capture('/home/pi/Documents/capture.jpg')
+  camera.capture('capture.jpg')
   camera.stop_preview()
 
   #
