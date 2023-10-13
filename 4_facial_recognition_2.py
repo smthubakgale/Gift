@@ -36,8 +36,8 @@ cmd_out= '--stdout > /home/pi/Documents/Text.wav '
 camera = PiCamera()
 
 #----------------------------- :: Methods 
-def face_recog(): 
-  #------------- 1. 
+def face_embeddings(): 
+  #-------------::: 1. Get the paths to the images files
   # dataset paths
   dataset = "/home/pi/Documents/dataset"
   imagePaths = list(paths.list_images(dataset))
@@ -45,8 +45,8 @@ def face_recog():
   # initialize the list of known encodings and known names
   knownEncodings = []
   knownNames = []
-
-  #------------- 2. 
+  
+  #-------------::: 2. Extract facial Encodings and Names from paths
   # loop over the image paths
   for (i, imagePath) in enumerate(imagePaths):
   	# extract the person name from the image path
@@ -73,7 +73,16 @@ def face_recog():
   		# encodings
   		knownEncodings.append(encoding)
   		knownNames.append(name)
-      
+    
+  #-------------::: 3. Export facial encodings and names to disk  
+  encoding = "encodings.pickle"
+  print("[INFO] serializing encodings...")
+  data = {"encodings": knownEncodings, "names": knownNames}
+  f = open(encoding, "wb")
+  f.write(pickle.dumps(data))
+  f.close()
+  #-------------::: 
+  
   pass
 def buzz_sound(song , beat):
   
