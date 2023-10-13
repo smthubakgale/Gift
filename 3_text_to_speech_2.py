@@ -92,7 +92,7 @@ def my_loop():
 
   print(str(dist))
   # Text to Speech
-  text = "Hello";
+  text = ' Hello World ';
   call([cmd_beg+cmd_out+text+cmd_end], shell=True)
   
   text = "World";
