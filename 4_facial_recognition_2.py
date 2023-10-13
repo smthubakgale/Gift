@@ -113,7 +113,7 @@ def face_recognize():
 def face_embeddings(): 
   #-------------::: 1. Get the paths to the images files
   # dataset paths
-  dataset = "/home/pi/Documents/dataset"
+  dataset = "dataset"
   imagePaths = list(paths.list_images(dataset))
 
   # initialize the list of known encodings and known names
