@@ -108,7 +108,7 @@ def face_recognize():
   		
   		# update the list of names
   		names.append(name)
-      print(str(name))
+       print(str(name))
 
   pass
 def face_embeddings(): 
