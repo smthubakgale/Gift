@@ -107,7 +107,9 @@ def face_recognize():
   			name = max(counts, key=counts.get)
   		
   		# update the list of names
-  		names.append(name) print(name)
+  		names.append(name)
+      print(str(name))
+
   pass
 def face_embeddings(): 
   #-------------::: 1. Get the paths to the images files
