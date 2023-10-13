@@ -98,6 +98,8 @@ def my_loop():
   text = "World";
   call([cmd_beg+cmd_out+text+cmd_end], shell=True)
   
+  text = dist;
+  call([cmd_beg+cmd_out+text+cmd_end], shell=True)
   #
   print("Loop after 10 second")
   time.sleep(10)
