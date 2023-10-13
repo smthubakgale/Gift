@@ -36,6 +36,50 @@ cmd_out= '--stdout > /home/pi/Documents/Text.wav '
 camera = PiCamera()
 
 #----------------------------- :: Methods 
+def face_recognize():
+  #-------------::: 1. cascade for face detection
+  encoding = "encodings.pickle"
+  cascade = "haarcascade_frontalface_default.xml"
+  
+  print("[INFO] loading encodings + face detector...")
+  data = pickle.loads(open(encoding, "rb").read())
+  detector = cv2.CascadeClassifier(cascade)
+
+  #-------------::: 2. initialize the video stream  
+  print("[INFO] starting video stream...")
+  #vs = VideoStream(src=0).start()                # webcam
+  vs = VideoStream(usePiCamera=True).start()      # picamera 
+  time.sleep(2.0)
+  
+  # start the FPS counter
+  fps = FPS().start()
+
+  #-------------::: 3. loop over video stream file frames 
+  while True:
+  	# grab the frame from the threaded video stream and resize it
+  	# to 500px (to speedup processing)
+  	frame = vs.read()
+  	frame = imutils.resize(frame, width=500)
+  	
+  	# convert the input frame from (1) BGR to grayscale (for face
+  	# detection) and (2) from BGR to RGB (for face recognition)
+  	gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+  	rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+  
+  	# detect faces in the grayscale frame
+  	rects = detector.detectMultiScale(gray, scaleFactor=1.1, 
+  		minNeighbors=5, minSize=(30, 30))
+  
+  	# OpenCV returns bounding box coordinates in (x, y, w, h) order
+  	# but we need them in (top, right, bottom, left) order, so we
+  	# need to do a bit of reordering
+  	boxes = [(y, x + w, y + h, x) for (x, y, w, h) in rects]
+  
+  	# compute the facial embeddings for each face bounding box
+  	encodings = face_recognition.face_encodings(rgb, boxes)
+  	names = []
+  
+  pass
 def face_embeddings(): 
   #-------------::: 1. Get the paths to the images files
   # dataset paths
