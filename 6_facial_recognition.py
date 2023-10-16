@@ -87,12 +87,13 @@ def face_recognize():
     
       roi_gray = gray[y:y+h, x:x+w] #Convert Face to greyscale 
       id_, conf = recognizer.predict(roi_gray) #recognize the Face
-
+ 
       if conf>=80:
+        print(id_)
         font = cv2.FONT_HERSHEY_SIMPLEX #Font style for the name 
         name = labels[id_] #Get the name from the List using ID number
         cv2.putText(img, name, (x,y), font, 1, (0,0,255), 2)
-        
+        print(name)
         cv2.rectangle(img,(x,y),(x+w,y+h),(0,255,0),2)
 
     cv2.imshow("Preview", img)
