@@ -2,9 +2,11 @@
 # Date : 16/10/2023
 #::: Facial Recognition Example 
 #----------------------------- :: Modules
-#:: detector libraries
-from pathlib import Path
-import face_recognition
+#:: model trainer : model interpreter 
+import cv2 #For Image processing 
+import numpy as np #For converting Images to Numerical array 
+import os #To handle directories 
+from PIL import Image #Pillow lib for handling images
 # 
 
 
