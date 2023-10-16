@@ -78,7 +78,7 @@ def face_recognize():
     image = frame.array
 
     # show the frame
-    ret, img = image 
+    img = image 
     
     gray  = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY) #convert Video frame to Greyscale
     faces = face_cascade.detectMultiScale(gray, scaleFactor=1.5, minNeighbors=5) #Recog. faces
