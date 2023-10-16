@@ -26,11 +26,12 @@ def face_train():
 
   for root, dirs, files in os.walk(Face_Images): #go to the face image directory 
     for file in files: #check every directory in it 
-      if file.endswith("jpeg") or file.endswith("jpg") or file.endswith("png"): #for image files ending with jpeg,jpg or png 
-			   path = os.path.join(root, file)
-			   person_name = os.path.basename(root)
-			   print(path, person_name)
- 
+            if file.endswith("jpeg") or file.endswith("jpg") or file.endswith("png"): #for image files ending with jpeg,jpg or png 
+			path = os.path.join(root, file)
+			person_name = os.path.basename(root)
+			print(path, person_name)
+
+			
 			if pev_person_name!=person_name: #Check if the name of person has changed 
 				Face_ID=Face_ID+1 #If yes increment the ID count 
 				pev_person_name = person_name
@@ -48,8 +49,8 @@ def face_train():
 				x_train.append(roi)
 				y_ID.append(Face_ID)
 
-  recognizer.train(x_train, np.array(y_ID)) #Create a Matrix of Training data 
-  recognizer.save("face-trainner.yml") #Save the matrix as YML file 
+recognizer.train(x_train, np.array(y_ID)) #Create a Matrix of Training data 
+recognizer.save("face-trainner.yml") #Save the matrix as YML file 
 
   pass
 
