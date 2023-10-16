@@ -95,7 +95,7 @@ def face_recognize():
         
         cv2.rectangle(img,(x,y),(x+w,y+h),(0,255,0),2)
 
-    cv2.imshow("Preview", image)
+    cv2.imshow("Preview", img)
     # clear the stream in preparation for the next frame
     rawCapture.truncate(0)
 
