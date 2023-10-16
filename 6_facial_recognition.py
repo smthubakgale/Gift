@@ -7,7 +7,19 @@ import cv2 #For Image processing
 import numpy as np #For converting Images to Numerical array 
 import os #To handle directories 
 from PIL import Image #Pillow lib for handling images
+#:: Camera
+from picamera.array import PiRGBArray
+from picamera import PiCamera
+import time
 # 
+
+# initialize the camera and grab a reference to the raw camera capture
+camera = PiCamera()
+camera.resolution = (640, 480)
+camera.framerate = 32
+rawCapture = PiRGBArray(camera, size=(640, 480))
+# allow the camera to warmup
+time.sleep(0.1)
 
 # https://www.geeksforgeeks.org/face-detection-using-cascade-classifier-using-opencv-python/
 #----------------------------- :: Methods 
@@ -59,15 +71,14 @@ def face_recognize():
   recognizer = cv2.face.LBPHFaceRecognizer_create()
   recognizer.read("face-trainner.yml")
 
-  #cap = cv2.VideoCapture(0) #Get vidoe feed from the Camera
-  vs = VideoStream(usePiCamera=True).start()      # picamera 
-  time.sleep(2.0)
+  # capture frames from the camera
+  for frame in camera.capture_continuous(rawCapture, format="bgr", use_video_port=True):
+    # grab the raw NumPy array representing the image, then initialize the timestamp
+    # and occupied/unoccupied text
+    image = frame.array
 
-  while(True):
-  
-    #ret, img = cap.read() # Break video into frames 
-    ret, img = vs.read() # Break video into frames 
-    
+    # show the frame
+    ret, img = image 
     
     gray  = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY) #convert Video frame to Greyscale
     faces = face_cascade.detectMultiScale(gray, scaleFactor=1.5, minNeighbors=5) #Recog. faces
@@ -84,9 +95,13 @@ def face_recognize():
         
         cv2.rectangle(img,(x,y),(x+w,y+h),(0,255,0),2)
 
-      cv2.imshow('Preview',img) #Display the Video
-      if cv2.waitKey(20) & 0xFF == ord('q'):
-        break
+    cv2.imshow("Preview", image)
+    # clear the stream in preparation for the next frame
+    rawCapture.truncate(0)
+
+    # if the `q` key was pressed, break from the loop
+    if key == ord("q"):
+        break 
 
   # When everything done, release the capture
   cap.release()
