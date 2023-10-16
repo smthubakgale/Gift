@@ -88,6 +88,7 @@ def face_recognize():
       roi_gray = gray[y:y+h, x:x+w] #Convert Face to greyscale 
       id_, conf = recognizer.predict(roi_gray) #recognize the Face
  
+      print(conf)
       if conf>=80:
         print(id_)
         font = cv2.FONT_HERSHEY_SIMPLEX #Font style for the name 
@@ -97,6 +98,7 @@ def face_recognize():
         cv2.rectangle(img,(x,y),(x+w,y+h),(0,255,0),2)
 
     #cv2.imshow("Preview", img)
+    key = cv2.waitKey(1) & 0xFF
     # clear the stream in preparation for the next frame
     rawCapture.truncate(0)
 
