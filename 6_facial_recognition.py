@@ -21,7 +21,7 @@ def face_train():
   y_ID = []
   x_train = []
 
-  Face_Images = os.path.join(os.getcwd(), "Face_Images") #Tell the program where we have saved the face images 
+  Face_Images = os.path.join(os.getcwd(), "dataset") #Tell the program where we have saved the face images 
   print (Face_Images)
 
   for root, dirs, files in os.walk(Face_Images): #go to the face image directory 
