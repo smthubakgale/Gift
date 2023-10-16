@@ -9,6 +9,8 @@ import os #To handle directories
 from PIL import Image #Pillow lib for handling images
 # 
 
+global recognizer
+global face_cascade
 # https://www.geeksforgeeks.org/face-detection-using-cascade-classifier-using-opencv-python/
 #----------------------------- :: Methods 
 def face_train():
@@ -55,9 +57,9 @@ def face_train():
 def face_recognize():
   labels = ["Limpho Letsoisa"] 
 
-  face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
-  recognizer = cv2.face.createLBPHFaceRecognizer()
-  recognizer.load("face-trainner.yml")
+  #face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
+  #recognizer = cv2.face.createLBPHFaceRecognizer()
+  #recognizer.load("face-trainner.yml")
 
   cap = cv2.VideoCapture(0) #Get vidoe feed from the Camera
 
