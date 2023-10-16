@@ -14,7 +14,7 @@ from PIL import Image #Pillow lib for handling images
 def face_train():
   
   face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
-  recognizer = cv2.face.createLBPHFaceRecognizer()
+  recognizer = cv2.face.LBPHFaceRecognizer_create()
 
   Face_ID = -1 
   pev_person_name = ""
@@ -56,14 +56,19 @@ def face_recognize():
   labels = ["Limpho Letsoisa"] 
 
   face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
-  recognizer = cv2.face.createLBPHFaceRecognizer()
+  recognizer = cv2.face.LBPHFaceRecognizer_create()
   recognizer.read("face-trainner.yml")
 
-  cap = cv2.VideoCapture(0) #Get vidoe feed from the Camera
+  #cap = cv2.VideoCapture(0) #Get vidoe feed from the Camera
+  vs = VideoStream(usePiCamera=True).start()      # picamera 
+  time.sleep(2.0)
 
   while(True):
   
-    ret, img = cap.read() # Break video into frames 
+    #ret, img = cap.read() # Break video into frames 
+    ret, img = vs.read() # Break video into frames 
+    
+    
     gray  = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY) #convert Video frame to Greyscale
     faces = face_cascade.detectMultiScale(gray, scaleFactor=1.5, minNeighbors=5) #Recog. faces
     
