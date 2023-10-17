@@ -15,8 +15,26 @@ from subprocess import call
 GPIO_TRIGGER = 18              # trigger
 GPIO_ECHO = 24                 # Echo 
 
+#::: Buzzer
+BuzzerPin = 4
 
 #----------------------------- :: Methods 
+def buzz_sound(song , beat):
+  
+  Buzz = GPIO.PWM(BuzzerPin, 440)
+  Buzz.start(60) 
+   
+  for i in range(1, len(song)):
+     if song[i] != 0 :
+        Buzz.start(60) 
+        Buzz.ChangeFrequency(song[i])
+     else:
+          Buzz.stop()
+     time.sleep(beat[i]*0.13) 
+
+  Buzz.stop()
+  pass
+  
 def speak(txt):
 
   cmd_beg= 'espeak '
@@ -34,12 +52,21 @@ def obst():
   
   d = distance()
   
-  if d < 150 :
-    dist = round(d)
-    print(dist)
-    text = "object detected " + str(dist) + " centimetres away"
+  # buzz 
+  if d < 50:
+    b1 = [ 5 , 5 , 5 , 5 , 5 , 5  ] # time
+    f1 = [ 0 , 1 , 0 , 1 , 0 , 1  ] # frequency 
+  
+    buzz_sound(f1 , b1);
+    text = "collision imminent"
     speak(text)
     
+  # talk   
+  if d < 150 :
+    dist = round(d) 
+    text = "object detected " + str(dist) + " centimetres away"
+    speak(text)
+   
   pass
   
 def distance():
@@ -77,8 +104,10 @@ def my_setup():
   GPIO.setmode(GPIO.BCM)
   GPIO.setwarnings(False)
   #: ultrasonic 
-  GPIO.setup(18, GPIO.OUT)    # Ultrasound trigger
-  GPIO.setup(24, GPIO.IN)     # Ultrasound Echo 
+  GPIO.setup(18, GPIO.OUT)           # Ultrasound trigger
+  GPIO.setup(24, GPIO.IN)            # Ultrasound Echo 
+  #: Buzzer
+  GPIO.setup(BuzzerPin, GPIO.OUT) 
   #:..
   print("Set Up")
   pass
