@@ -43,10 +43,19 @@ def weather():
   print(main)
   
   temp = (main["temp"] - 32)/1.8  
+  print(temp)
   text = "the temperature is " + str(temp) + " degree celcius"
   speak(text)
   
-  text = "width a minimum of " 
+  temp = (main["temp_min"] - 32)/1.8  
+  print(temp)
+  text = "with a minimum of "  + str(temp) + " degree celcius"
+  speak(text)
+  
+  temp = (main["temp_max"] - 32)/1.8  
+  print(temp)
+  text = "and a maximum of "  + str(temp) + " degree celcius"
+  speak(text)
   
   pass
 def buzz_sound(song , beat):
