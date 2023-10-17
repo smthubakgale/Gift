@@ -53,11 +53,11 @@ def obst():
   d = distance()
   
   # buzz 
-  if d < 50:
+  if d < 50 :
     b1 = [ 5 , 5 , 5 , 5 , 5 , 5  ] # time
     f1 = [ 0 , 1 , 0 , 1 , 0 , 1  ] # frequency 
   
-    buzz_sound(f1 , b1);
+    #buzz_sound(f1 , b1);
     text = "collision imminent"
     speak(text)
     
