@@ -41,7 +41,13 @@ def weather():
   
   temp = main["temp"]
   print(str(temp))
+  celsius = (temp - 32) / 1.8
+  print(str(celcius))
    
+  text = "for your weather update"
+  speak(text)
+  text = "the temperature is " + str(celcius)
+  speak(text)
   pass
 def buzz_sound(song , beat):
   
