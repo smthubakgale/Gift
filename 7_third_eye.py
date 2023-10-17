@@ -39,11 +39,9 @@ def weather():
   data = json.loads(txt)
   print(data)
   
-  main = data["main"] 
-  print(main)
+  main = data["main"]  
   
   temp = round(main["temp"] - 273.15 , 2)  
-  print(temp)
   text = "the temperature is " + str(temp) + " degree celcius"
   speak(text)
   
@@ -52,8 +50,7 @@ def weather():
   text = "with a minimum of "  + str(temp) + " degree celcius"
   speak(text)
   
-  temp = round(main["temp_max"] - 273.15 , 2)  
-  print(temp)
+  temp = round(main["temp_max"] - 273.15 , 2)   
   text = "and a maximum of "  + str(temp) + " degree celcius"
   speak(text)
   
