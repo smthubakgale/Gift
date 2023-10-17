@@ -33,12 +33,9 @@ def weather():
   myobj = {'somekey': 'somevalue'}
 
   x = requests.post(url, data = myobj)
-  txt = x.text
-  print(txt)
+  txt = x.text 
   
-  data = json.loads(txt)
-  print(data)
-  
+  data = json.loads(txt)  
   main = data["main"]  
   
   temp = round(main["temp"] - 273.15 , 2)  
@@ -56,6 +53,8 @@ def weather():
   wind_speed = data["wind"]["speed"]  
   text = "the wind speed is "  + str(wind_speed) + " metres per second "
   speak(text)
+  
+  print(data["weather"])
   
   desc = data["weather"].description  
   text = "thus you can expect "  + desc
