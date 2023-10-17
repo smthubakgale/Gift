@@ -30,14 +30,14 @@ def speak(txt):
     
   pass
   
-def obstacle():
+def obst():
   
   d = distance()
   
   if d < 200 :
     dist = round(d)
-    text = "object detected " + str(dist) + " centimetres away"
-    print(str(dist))
+    print(dist)
+    text = "object detected " + dist + " centimetres away"
     speak(text)
     
   pass
@@ -85,7 +85,7 @@ def my_setup():
 #------------------------------:: Loop
 def my_loop():
 
-  obstacle()
+  obst()
   
   print("Loop after 10 second")
   time.sleep(3)
