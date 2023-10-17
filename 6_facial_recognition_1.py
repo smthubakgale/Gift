@@ -103,8 +103,9 @@ def face_recognize():
     rawCapture.truncate(0)
 
     # if the `q` key was pressed, break from the loop
-    if key == ord("q"):
-        break 
+    #if key == ord("q"):
+    #    break 
+    break
 
   # When everything done, release the capture
   cap.release()
