@@ -45,13 +45,24 @@ def weather():
   text = "the temperature is " + str(temp) + " degree celcius"
   speak(text)
   
-  temp = round(main["temp_min"] - 273.15 , 2)   
-  print(temp)
+  temp = round(main["temp_min"] - 273.15 , 2)  
   text = "with a minimum of "  + str(temp) + " degree celcius"
   speak(text)
   
   temp = round(main["temp_max"] - 273.15 , 2)   
   text = "and a maximum of "  + str(temp) + " degree celcius"
+  speak(text)
+    
+  wind_speed = data["wind"]["speed"]  
+  text = "the wind speed is "  + str(wind_speed) + " metres per second "
+  speak(text)
+  
+  desc = data["weather]["description"]  
+  text = "thus you can expect "  + desc
+  speak(text)
+  
+  cds = data["clouds].all  
+  text = "width "  + str(cds) + " percent cloud cover "
   speak(text)
   
   pass
