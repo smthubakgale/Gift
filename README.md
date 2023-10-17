@@ -9,3 +9,6 @@
   
 3. text to specch
 4. camera module
+5. api request
+6. facial recognition
+7. Third Eye
