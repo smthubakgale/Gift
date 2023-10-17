@@ -14,8 +14,8 @@ from subprocess import call
 #:": Ultrasonic 
 GPIO_TRIGGER = 18              # trigger
 GPIO_ECHO = 24                 # Echo 
- 
- 
+
+
 #----------------------------- :: Methods 
 def speak(txt):
 
@@ -34,7 +34,7 @@ def obst():
   
   d = distance()
   
-  if d < 200 :
+  if d < 150 :
     dist = round(d)
     print(dist)
     text = "object detected " + str(dist) + " centimetres away"
