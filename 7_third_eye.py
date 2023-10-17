@@ -56,9 +56,11 @@ def weather():
   
   print(data["weather"])
   
-  desc = data["weather"].description  
-  text = "thus you can expect "  + desc
-  speak(text)
+  for wd in data["weather"] :
+ 
+    desc = wd.description  
+    text = "thus you can expect "  + desc
+    speak(text)
   
   cds = data["clouds"].all  
   text = "width "  + str(cds) + " percent cloud cover "
