@@ -54,7 +54,7 @@ def weather():
   text = "the wind speed is "  + str(wind_speed) + " metres per second "
   speak(text)
    
-  text = "thus you can expect "  + desc
+  text = "thus you can expect "  
   speak(text)
   for wd in data["weather"] :
  
