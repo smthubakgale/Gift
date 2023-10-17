@@ -96,6 +96,7 @@ def face_recognize():
         cv2.putText(img, name, (x,y), font, 1, (0,0,255), 2)
         print(name)
         cv2.rectangle(img,(x,y),(x+w,y+h),(0,255,0),2)
+        break;
 
     #cv2.imshow("Preview", img)
     key = cv2.waitKey(1) & 0xFF
@@ -103,12 +104,13 @@ def face_recognize():
     rawCapture.truncate(0)
 
     # if the `q` key was pressed, break from the loop
-    #if key == ord("q"):
-    #    break 
-    break
+    if key == ord("q"):
+        break 
 
   # When everything done, release the capture
+  #cap.release()
   cv2.destroyAllWindows()
+  
   pass
   
 def face_interpret():
