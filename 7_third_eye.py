@@ -32,7 +32,7 @@ GPIO_TRIGGER = 18              # trigger
 GPIO_ECHO = 24                 # Echo 
 
 #::: Buzzer
-BuzzerPin = 4
+BuzzerPin = 4 
 
 #----------------------------- :: Methods 
 #----------------------------- :: Methods 
@@ -120,7 +120,9 @@ def face_recognize():
         text = name + " is infront of you"
         speak(text)
         cv2.rectangle(img,(x,y),(x+w,y+h),(0,255,0),2)
-
+      else :
+        text = "unknown person infront of you"
+        speak(text)
     #cv2.imshow("Preview", img)
     key = cv2.waitKey(1) & 0xFF
     # clear the stream in preparation for the next frame
@@ -165,16 +167,15 @@ def weather():
   text = "the wind speed is "  + str(wind_speed) + " metres per second "
   speak(text)
   
-  print(data["clouds"])
   cds = data["clouds"]["all"]  
   text = "with "  + str(cds) + " percent cloud cover "
   speak(text)
   
   text = "thus you can expect "  
   speak(text)
+  
   for wd in data["weather"] :
  
-    print(wd)
     desc = wd["description"]   
     speak(desc)
   
