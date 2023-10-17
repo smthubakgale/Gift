@@ -26,6 +26,9 @@ BuzzerPin = 4
 #----------------------------- :: Methods 
 def weather():
 
+  text = "for your weather update"
+  speak(text)
+  
   url = 'https://api.openweathermap.org/data/2.5/weather?lat=-25.7523712&lon=29.715950&appid=95b9aaca4c4d70262e60f63f8f3393ff'
   myobj = {'somekey': 'somevalue'}
 
@@ -39,15 +42,12 @@ def weather():
   main = data["main"] 
   print(main)
   
-  temp = main["temp"]
-  print(str(temp))
-  celsius = (temp - 32) / 1.8
-  print(str(celcius))
-   
-  text = "for your weather update"
+  temp = (main["temp"] - 32)/1.8  
+  text = "the temperature is " + str(temp) + " degree celcius"
   speak(text)
-  text = "the temperature is " + str(celsius) + " degree celcius"
-  speak(text)
+  
+  text = "width a minimum of " 
+  
   pass
 def buzz_sound(song , beat):
   
