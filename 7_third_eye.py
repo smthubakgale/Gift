@@ -24,7 +24,6 @@ from picamera import PiCamera
 import time
 #:: Multithreading
 import threading
-#
 #: 
  
 #----------------------------- :: Pins 
