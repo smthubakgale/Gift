@@ -54,7 +54,8 @@ def weather():
   text = "the wind speed is "  + str(wind_speed) + " metres per second "
   speak(text)
   
-  cds = data["clouds"].all  
+  print(data["clouds"])
+  cds = data["clouds"]["all"]  
   text = "with "  + str(cds) + " percent cloud cover "
   speak(text)
   
