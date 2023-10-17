@@ -29,6 +29,19 @@ def speak(txt):
     call([cmd_beg+cmd_out+text+cmd_end], shell=True)
     
   pass
+  
+def obstacle():
+  
+  d = distance()
+  
+  if d < 200 :
+    dist = round(d)
+    text = "object detected " + str(dist) + " centimetres away"
+    print(str(dist))
+    speak(text)
+    
+  pass
+  
 def distance():
   
   #--- send trigger for 0.01 ms
@@ -72,13 +85,7 @@ def my_setup():
 #------------------------------:: Loop
 def my_loop():
 
-  d = distance()
-  
-  if d < 200 :
-    dist = round(d)
-    text = "object detected " + str(dist) + " centimetres away"
-    print(str(dist))
-    speak(text)
+  obstacle()
   
   print("Loop after 10 second")
   time.sleep(3)
