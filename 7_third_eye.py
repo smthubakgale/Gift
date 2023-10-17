@@ -9,6 +9,11 @@ import time
 from num2words import num2words
 #: command line 
 from subprocess import call
+#: get request
+import requests
+#: json
+import json
+#: 
 
 #----------------------------- :: Pins 
 #::: Ultrasonic 
@@ -19,6 +24,25 @@ GPIO_ECHO = 24                 # Echo
 BuzzerPin = 4
 
 #----------------------------- :: Methods 
+def weather():
+
+  url = 'https://api.openweathermap.org/data/2.5/weather?lat=-25.7523712&lon=29.715950&appid=95b9aaca4c4d70262e60f63f8f3393ff'
+  myobj = {'somekey': 'somevalue'}
+
+  x = requests.post(url, data = myobj)
+  txt = x.text
+  print(txt)
+  
+  data = json.loads(txt)
+  print(data)
+  
+  main = data["main"] 
+  print(main)
+  
+  temp = main["temp"]
+  print(str(temp))
+   
+  pass
 def buzz_sound(song , beat):
   
   Buzz = GPIO.PWM(BuzzerPin, 440)
@@ -52,7 +76,6 @@ def obst():
   
   d = distance()
   
-  print(str(d))
   if d < 50 :
     b1 = [ 5 , 5 , 5 , 5 , 5 , 5  ] # time
     f1 = [ 0 , 1 , 0 , 1 , 0 , 1  ] # frequency 
@@ -107,6 +130,8 @@ def my_setup():
   #: Buzzer
   GPIO.setup(BuzzerPin, GPIO.OUT) 
   #:..
+  print("Weather")
+  weather()
   print("Set Up")
   pass
 #------------------------------:: Loop
