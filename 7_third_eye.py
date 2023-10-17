@@ -37,7 +37,7 @@ def obst():
   if d < 200 :
     dist = round(d)
     print(dist)
-    text = "object detected " + dist + " centimetres away"
+    text = "object detected " + str(dist) + " centimetres away"
     speak(text)
     
   pass
