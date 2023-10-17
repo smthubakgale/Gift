@@ -7,7 +7,7 @@
     - format : https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API key}
     - example : https://api.openweathermap.org/data/2.5/weather?lat=-25.7523712&lon=29.715950&appid=95b9aaca4c4d70262e60f63f8f3393ff
     - results : open example link in browser and you get
-    - 
+       - 
       //
          {"coord":{"lon":29.716,"lat":-25.7524},"weather":[{"id":801,"main":"Clouds","description":"few clouds","icon":"02d"}],"base":"stations","main":
          {"temp":291.2,"feels_like":290.16,"temp_min":291.2,"temp_max":291.2,"pressure":1016,"humidity":42,"sea_level":1016,"grnd_level":840},"visibility":10000,"wind":
