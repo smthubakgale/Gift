@@ -53,14 +53,14 @@ def weather():
   wind_speed = data["wind"]["speed"]  
   text = "the wind speed is "  + str(wind_speed) + " metres per second "
   speak(text)
-  
-  print(data["weather"])
-  
+   
+  text = "thus you can expect "  + desc
+  speak(text)
   for wd in data["weather"] :
  
-    desc = wd.description  
-    text = "thus you can expect "  + desc
-    speak(text)
+    print(wd)
+    desc = wd.description   
+    speak(desc)
   
   cds = data["clouds"].all  
   text = "width "  + str(cds) + " percent cloud cover "
