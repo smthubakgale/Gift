@@ -42,17 +42,17 @@ def weather():
   main = data["main"] 
   print(main)
   
-  temp = (main["temp"] - 32)/1.8  
+  temp = round(main["temp"] - 273.15 , 2)  
   print(temp)
   text = "the temperature is " + str(temp) + " degree celcius"
   speak(text)
   
-  temp = (main["temp_min"] - 32)/1.8  
+  temp = round(main["temp_min"] - 273.15 , 2)   
   print(temp)
   text = "with a minimum of "  + str(temp) + " degree celcius"
   speak(text)
   
-  temp = (main["temp_max"] - 32)/1.8  
+  temp = round(main["temp_max"] - 273.15 , 2)  
   print(temp)
   text = "and a maximum of "  + str(temp) + " degree celcius"
   speak(text)
