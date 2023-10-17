@@ -52,17 +52,15 @@ def obst():
   
   d = distance()
   
-  # buzz 
   if d < 50 :
-    b1 = [ 5 , 5 , 5 , 5 , 5 , 5  ] # time
-    f1 = [ 0 , 1 , 0 , 1 , 0 , 1  ] # frequency 
+    #b1 = [ 5 , 5 , 5 , 5 , 5 , 5  ] # time
+    #f1 = [ 0 , 1 , 0 , 1 , 0 , 1  ] # frequency 
   
     #buzz_sound(f1 , b1);
     text = "collision imminent"
     speak(text)
-    
-  # talk   
-  if d < 150 :
+      
+  else if d < 150 :
     dist = round(d) 
     text = "object detected " + str(dist) + " centimetres away"
     speak(text)
@@ -114,6 +112,7 @@ def my_setup():
 #------------------------------:: Loop
 def my_loop():
 
+  print("Loop Start")
   obst()
   
   print("Loop after 10 second")
