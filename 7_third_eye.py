@@ -72,11 +72,13 @@ def my_setup():
 #------------------------------:: Loop
 def my_loop():
 
-  dist = distance()
-  text = "object detected " + str(dist) + " centimetres away "
-
-  print(str(dist))
-  speak(text)
+  d = distance()
+  
+  if d < 200 :
+    dist = round(d)
+    text = "object detected " + str(dist) + " centimetres away"
+    print(str(dist))
+    speak(text)
   
   print("Loop after 10 second")
   time.sleep(3)
