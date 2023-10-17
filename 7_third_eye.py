@@ -61,7 +61,7 @@ def weather():
   text = "thus you can expect "  + desc
   speak(text)
   
-  cds = data["clouds].all  
+  cds = data["clouds"].all  
   text = "width "  + str(cds) + " percent cloud cover "
   speak(text)
   
