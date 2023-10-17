@@ -11,7 +11,7 @@ from num2words import num2words
 from subprocess import call
 
 #----------------------------- :: Pins 
-#:": Ultrasonic 
+#::: Ultrasonic 
 GPIO_TRIGGER = 18              # trigger
 GPIO_ECHO = 24                 # Echo 
 
@@ -59,8 +59,7 @@ def obst():
     #buzz_sound(f1 , b1);
     text = "collision imminent"
     speak(text)
-      
-  else if d < 150 :
+  if d < 150 :
     dist = round(d) 
     text = "object detected " + str(dist) + " centimetres away"
     speak(text)
