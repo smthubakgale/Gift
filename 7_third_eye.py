@@ -59,7 +59,7 @@ def weather():
   for wd in data["weather"] :
  
     print(wd)
-    desc = wd.description   
+    desc = json.loads(wd)["description"]   
     speak(desc)
   
   cds = data["clouds"].all  
