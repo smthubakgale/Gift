@@ -14,16 +14,15 @@ from subprocess import call
 #:": Ultrasonic 
 GPIO_TRIGGER = 18              # trigger
 GPIO_ECHO = 24                 # Echo 
-
-#----------------------------- :: Variables
-#::: Text-To-Speech
-cmd_beg= 'espeak '
-cmd_end= ' | aplay Text.wav  2>/dev/null' 
-cmd_out= '--stdout > Text.wav ' 
-
+ 
+ 
 #----------------------------- :: Methods 
 def speak(txt):
-  
+
+  cmd_beg= 'espeak '
+  cmd_end= ' | aplay Text.wav  2>/dev/null' 
+  cmd_out= '--stdout > Text.wav ' 
+
   arr = txt.split()
   
   for text in arr: 
@@ -77,6 +76,7 @@ def my_loop():
   text = "object detected " + str(dist) + " centimetres away "
 
   print(str(dist))
+  speak(text)
   
   print("Loop after 10 second")
   time.sleep(3)
