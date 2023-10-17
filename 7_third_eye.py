@@ -46,7 +46,7 @@ def weather():
    
   text = "for your weather update"
   speak(text)
-  text = "the temperature is " + str(celcius)
+  text = "the temperature is " + str(celcius) + " degree celcius"
   speak(text)
   pass
 def buzz_sound(song , beat):
