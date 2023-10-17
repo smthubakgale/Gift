@@ -120,17 +120,14 @@ def my_setup():
 
   print("Training Model")
   face_train()
-  
-  print("Recognise")
-  t1 = threading.Thread(target=face_recognize, args=())
-  t1.start()
-  
+   
   print("Set Up")
   pass
 #------------------------------:: Loop
 def my_loop():
-  #print("Recognize")
-  #face_recognize()
+  print("Recognize") 
+  t1 = threading.Thread(target=face_recognize, args=())
+  t1.start()
   print("Loop after 10 second")
   time.sleep(10)
   
