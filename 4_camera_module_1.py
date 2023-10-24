@@ -18,8 +18,6 @@ GPIO_ECHO = 24                 # Echo
 
 #::: Buzzer
 BuzzerPin = 4
-
-
 #----------------------------- :: Variables
 #::: Text-To-Speech
 cmd_beg= 'espeak '
