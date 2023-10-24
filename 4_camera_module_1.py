@@ -1,6 +1,6 @@
 # Author : Thubakgale Mabalane 
 # Date : 13/10/2023
-#::: Ultrasonic + Buzzer + Text-To-Speech + Facial Recognition Example 
+#::: Camera Example 
 #----------------------------- :: Modules
 #:: Ultrasonic + Buzzer
 import RPi .GPIO as GPIO 
@@ -93,14 +93,14 @@ def my_loop():
   b1 = [ 5 , 5 , 5 , 5 , 5 , 5  ] # time
   f1 = [ 0 , 1 , 0 , 1 , 0 , 1  ] # frequency 
   
-  buzz_sound(f1 , b1);
+  #buzz_sound(f1 , b1);
   # Ultrasonic
-  dist = distance()
+  #dist = distance()
 
   print(str(dist))
   # Text to Speech
-  text = "Wassup";
-  call([cmd_beg+cmd_out+text+cmd_end], shell=True)
+  #text = "Wassup";
+  #call([cmd_beg+cmd_out+text+cmd_end], shell=True)
 
   # Camera 
   camera.start_preview()
