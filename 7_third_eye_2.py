@@ -1,6 +1,6 @@
 # Author : Thubakgale Mabalane 
-# Date : 17/10/2023
-#::: Third Eeye Project  
+# Date : 24/10/2023
+#::: Third Eye Project  
 #----------------------------- :: Modules
 #: basics 
 import RPi .GPIO as GPIO 
@@ -32,9 +32,9 @@ GPIO_TRIGGER = 18              # trigger
 GPIO_ECHO = 24                 # Echo 
 
 #::: Buzzer
-BuzzerPin = 4 
-
-#----------------------------- :: Methods 
+BuzzerPin = 4
+#----------------------------- :: Variables 
+CanSpeak = True
 #----------------------------- :: Methods 
 def face_train():
   
@@ -196,16 +196,21 @@ def buzz_sound(song , beat):
   pass
   
 def speak(txt):
+  global CanSpeak 
 
-  cmd_beg= 'espeak '
-  cmd_end= ' | aplay Text.wav  2>/dev/null' 
-  cmd_out= '--stdout > Text.wav ' 
+  if CanSpeak == True :
+     CanSpeak = False
+   
+     cmd_beg= 'espeak '
+     cmd_end= ' | aplay Text.wav  2>/dev/null' 
+     cmd_out= '--stdout > Text.wav ' 
 
-  arr = txt.split()
+     arr = txt.split()
   
-  for text in arr: 
-    call([cmd_beg+cmd_out+text+cmd_end], shell=True)
-    
+     for text in arr: 
+       call([cmd_beg+cmd_out+text+cmd_end], shell=True)
+      
+     CanSpeak = True
   pass
   
 def obst():
