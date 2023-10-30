@@ -87,7 +87,7 @@ def face_recognize():
   # allow the camera to warmup
   time.sleep(0.1)
 
-  labels = ["Limpho Letsoisa" , "Donald makapatshe"]  # folder names  
+  labels = ["Limpho Letsoisa" , "Donald makapatshe" ]  # folder names  
 
   face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
   recognizer = cv2.face.LBPHFaceRecognizer_create()
@@ -125,6 +125,8 @@ def face_recognize():
       else :
         text = "unknown person infront of you"
         speak(text)
+
+        face_train()
     #cv2.imshow("Preview", img)
     key = cv2.waitKey(1) & 0xFF
     # clear the stream in preparation for the next frame
